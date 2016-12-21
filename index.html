@@ -1,9 +1,47 @@
 <html>
 <head>
 	<title>Sample webpage</title>
+	<meta charset="utf-8" />
+	<script src="./scripts/jquery/jquery-3.1.1.min.js"></script>
+	<script src="./scripts/bootstrap/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+	<script src="./scripts/parallax.js-1.4.2/parallax.min.js"></script>
+	<link href="./scripts/bootstrap/bootstrap-3.3.7/css/bootstrap.min.css" />
+	<link href="./css/main.css" rel="stylesheet" />
+	<script>
+		$(function() {
+			if (navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/)) {
+				$('#ios-notice').removeClass('hidden');
+				$('.parallax-container').height( $(window).height() * 0.5 | 0 );
+			} else {
+				$(window).resize(function(){
+				var parallaxHeight = Math.max($(window).height() * 0.7, 200) | 0;
+				$('.parallax-container').height(parallaxHeight);
+				}).trigger('resize');
+			}
+		});
+	</script>
 </head>
 <body>
-	<h1>Sample only</h1>
-	This is just a sample webpage.
+	<div class="parallax-container" data-parallax="scroll" data-position="top" data-bleed="10"
+		data-image-src="./img/jc-1.jpg" data-natural-width="1400"
+		data-natural-height="900"></div>
+	<section>
+		<div class="container">
+			<h1 id="sec-main">Sample only</h1>
+			This is just a sample webpage.<br /><br />
+
+			Sample jquery here.
+		</div>
+	</section>
+
+	<div class="parallax-container" data-parallax="scroll" data-position="top" data-bleed="10"
+		data-image-src="./img/jc-1.jpg" data-natural-width="1400"
+		data-natural-height="900"></div>
+	<section>
+		<div class="container">
+			<h1>Another sample</h1>
+			This is another blah blah blah
+		</div>
+	</section>
 </body>
 </html>
